@@ -8,7 +8,7 @@ class Carta
     
     public function __toString()
     {
-        return sprintf("(%s) | %s\n", $this->numero, $this->nome);
+        return sprintf("(%s)| %s\n", $this->numero, $this->nome);
     }
 
 
@@ -102,6 +102,7 @@ foreach ($cartas as $carta) {
 }
 
 $tentativas = 0;
+$pontos = 1000;
 
 do {
     $palpite = readline("Digite a carta sorteada: ");
@@ -111,8 +112,10 @@ do {
         echo "\nVocê acertou!\n";
         echo "Carta sorteada: " . $cartaSorteada;
         echo "Você acertou em : " . $tentativas . " tentativas!\n";
+        echo "Pontuação: " . $pontos . "!\n";
         break;
     } else {
-        echo "Tente novamente.\n";
+        echo "Errou! Tente novamente.\n";
+        $pontos = $pontos - 70;
     }
 } while (true);
